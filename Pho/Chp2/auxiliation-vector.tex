@@ -1,0 +1,56 @@
+\def\elemw{0.25}
+\def\elemh{0.4}
+
+\def\elem#1#2{
+\begin{scope}[shift={#1}]
+\draw[thick,#2] (-\elemw/2, -\elemh/2) -- (\elemw/2, -\elemh/2) -- (\elemw/2, \elemh/2) -- (-\elemw/2, \elemh/2) --  (-\elemw/2, -\elemh/2);
+%\draw[thick,gray] (-\elemw/2, 0) -- (\elemw/2 , 0);
+\end{scope}
+}
+
+\def\lelemw{0.6}
+\def\lelemh{0.8}
+
+\def\largeelem#1{
+\begin{scope}[shift={#1}]
+\draw[thick] (-\lelemw/2, -\lelemh/2) -- (\lelemw/2, -\lelemh/2) -- (\lelemw/2, \lelemh/2) -- (-\lelemw/2, \lelemh/2) --  (-\lelemw/2, -\lelemh/2);
+\draw[thick,dashed,gray] (-\lelemw/2, 0) -- (\lelemw/2,0);
+\draw (0, \lelemh/4) node {\tiny{$u_{\nu_i}^{\max}$}};
+\draw (0, -\lelemh/4) node {\tiny{$u_{\nu_i}^{\min}$}};
+%\draw[thick,gray] (-\elemw/2, 0) -- (\elemw/2 , 0);
+\end{scope}
+}
+\pgfarrowsdeclarecombine{|<}{>|}{|}{|}{latex}{latex}
+\def\Dimline[#1][#2][#3]{
+    %\node at (0,0) {"test: #1 - #2 ..."};
+    \begin{scope}[>=latex] % redef arrow for dimension lines
+        \draw[|<->|,
+        decoration={markings, % switch on markings
+                mark=at position .5 with {\node[black] at (0,0.2) {\tiny{#3}};},
+        },
+        postaction=decorate] #1 -- #2 ;
+    \end{scope}
+}
+
+
+
+\begin{tikzpicture}[scale=1.2]
+%\elem{(0,0)}
+\foreach \nelem in {-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10}{
+\elem{(\nelem * \elemw, 0)}{black}
+}
+\elem{(-3*\elemw,0)}{red}
+\draw (-3*\elemw, 0) node{\tiny{$i$}};
+%\draw[dashed,gray,red, thick] (-4*\elemw, -\elemw/2 - \elemh/2) -- (-2*\elemw, -\elemw/2 - \elemh/2) -- (-2*\elemw, \elemw/2 + \elemh/2) -- (-4*\elemw, \elemw/2 + \elemh/2) -- (-4*\elemw, -\elemw/2 - \elemh/2);
+\draw[implies-,double equal sign distance,thick,gray]  (-3*\elemw,-\elemw - \elemh) -- (-3*\elemw,-\elemw/3 - \elemh/2);
+\largeelem{(-3*\elemw,-3*\elemw - \elemh)}
+
+%\node at (-10*\elemw - \elemw/2,0) (nA);
+%\node at (10*\elemw + \elemw/2,0) (nB);
+ \coordinate (nA) at (-10*\elemw - \elemw/2,0);
+ \coordinate (nB) at (10*\elemw + \elemw/2,0);
+% \Dimline[($(nA)+(0,\elemh)$)][($(nB)+(0,\elemh)$)][NVert] ;
+\Dimline[($(nA)+(0,\elemh)$)][($(nB)+(0,\elemh)$)][$N_{\mbox{vert}}$] ;
+
+
+\end{tikzpicture}

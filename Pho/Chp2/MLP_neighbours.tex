@@ -1,0 +1,82 @@
+\def\curvearrow#1#2{
+\begin{scope}[shift={#1}]
+  %\draw [fill=black](0,0) -- (2,2.5) -- (-2,2.5) -- cycle;
+  %  \draw [fill=white,ultra thick](0,0) circle (1);
+  %\draw [fill=#3](0,0) -- (0.5,{sqrt(3.0)/2.0}) -- (-0.5, {sqrt(3.0)/2.0}) -- cycle;
+ %\draw [fill=black](0,0) -- (0.5,2.0) -- (-0.5,2.0) -- cycle;
+\draw [<-,dashed,line width=0.5pt] ({#2/2},{sqrt(3)*#2/2}) arc (60:-240:#2);
+
+\end{scope}
+}
+
+\def\colortriangle#1#2#3{
+\begin{scope}[shift={#1}, rotate=#2]
+  %\draw [fill=black](0,0) -- (2,2.5) -- (-2,2.5) -- cycle;
+  %  \draw [fill=white,ultra thick](0,0) circle (1);
+  \draw [fill=#3](0,0) -- (0.5,{sqrt(3.0)/2.0}) -- (-0.5, {sqrt(3.0)/2.0}) -- cycle;
+ %\draw [fill=black](0,0) -- (0.5,2.0) -- (-0.5,2.0) -- cycle;
+ \filldraw (0,0) circle (1pt);
+ \filldraw (0.5,{sqrt(3.0)/2.0}) circle (1pt);
+ \filldraw (-0.5, {sqrt(3.0)/2.0}) circle (1pt);
+%\curvearrow{(0,{1.0/sqrt(3.0)})}{0.2}
+\draw[>=stealth,<-,dashed] ($(0,0) + (90:0.1)$) --  (0, {sqrt(3.0)/3.0});
+\draw[>=stealth,<-,dashed] ($(0.5,{sqrt(3.0)/2.0}) + (210:0.1)$) --  (0, {sqrt(3.0)/3.0});
+\draw[>=stealth,<-,dashed] ($(-0.5,{sqrt(3.0)/2.0}) + (-30:0.1)$) --  (0, {sqrt(3.0)/3.0});
+\draw[thin] (0, {sqrt(3.0)/3.0}) circle (1.5pt);
+\end{scope}
+}
+
+\begin{tikzpicture}[scale=1.9]
+%\camera{(0,0)}{0}
+%\camera{(3,3)}{30}
+%\camera{(2.8,-1)}{-100}
+
+  \coordinate (A) at (0.0,0.0);
+  \coordinate (B) at (0.5,{sqrt(3.0)/2.0});
+  \coordinate (C) at (-0.5,{sqrt(3.0)/2.0});
+
+\colortriangle{(A)}{0}{gray}
+\colortriangle{(A)}{180}{white}
+\colortriangle{(A)}{120}{white}
+\colortriangle{(A)}{240}{white}
+\colortriangle{(B)}{0}{white}
+\colortriangle{(B)}{60}{white}
+\colortriangle{(B)}{180}{white}
+\colortriangle{(B)}{240}{white}
+\colortriangle{(B)}{300}{white}
+\colortriangle{(C)}{0}{white}
+\colortriangle{(C)}{60}{white}
+\colortriangle{(C)}{120}{white}
+\colortriangle{(C)}{180}{white}
+
+\filldraw[color=red]  (A) circle (1pt);
+\filldraw[color=white] ($(A) + (0, -0.2)$) circle (2.6pt);
+\draw ($(A) + (0, -0.2)$) node{\tiny{A}};
+\filldraw[color=red]  (B) circle (1pt);
+\filldraw[color=white] ($(B) + (0, -0.2)$) circle (2.6pt);
+\draw ($(B) + (0, -0.2)$) node{\tiny{B}};
+\filldraw[color=red]  (C) circle (1pt);
+\filldraw[color=white] ($(C) + (0, -0.2)$) circle (2.6pt);
+\draw ($(C) + (0, -0.2)$) node{\tiny{C}};
+\filldraw[color=gray] ($(A) + (0, {1.0/sqrt(3.0)})$) circle (2.8pt);
+\draw ($(A) + (0, {1.0/sqrt(3.0)})$) node{\scriptsize{$T_j$}};
+
+\draw[red, thick, dashed] (C) -- ++(0:1) -- ++(-60:1) -- ++(-120:1) -- ++(-180:1) -- ++(-240:1) -- ++(60:1);
+%\node   (n4) at (0,2)  {};
+%\draw [<-,line width=0.5pt] (n4) ++(0:5mm) --++(60:-1pt) arc (-220:40:5mm);
+%\draw [<-,line width=0.5pt] (0,0) arc (220:-40:2.5mm);
+%\draw [<-,line width=0.5pt] (0,0) arc (60:-240:1);
+% \curvearrow{($(A) + (0, {1.0/sqrt(3.0)})$)}{0.2}
+% \curvearrow{($(A) + (0, -{1.0/sqrt(3.0)})$)}{0.2}
+% \curvearrow{($(A) + (0.5, -{sqrt(3.0)/6.0})$)}{0.2}
+% \curvearrow{($(A) + (-0.5, -{sqrt(3.0)/6.0})$)}{0.2}
+% \curvearrow{($(B) + (0, {1.0/sqrt(3.0)})$)}{0.2}
+% \curvearrow{($(B) + (0, -{1.0/sqrt(3.0)})$)}{0.2}
+% \curvearrow{($(B) + (0.5, {sqrt(3.0)/6.0})$)}{0.2}
+% \curvearrow{($(B) + (0.5, -{sqrt(3.0)/6.0})$)}{0.2}
+% \curvearrow{($(C) + (0, {1.0/sqrt(3.0)})$)}{0.2}
+% \curvearrow{($(C) + (0, -{1.0/sqrt(3.0)})$)}{0.2}
+% \curvearrow{($(C) + (0.5, {sqrt(3.0)/6.0})$)}{0.2}
+% \curvearrow{($(C) + (-0.5, {sqrt(3.0)/6.0})$)}{0.2}
+% \curvearrow{($(C) + (-0.5, -{sqrt(3.0)/6.0})$)}{0.2}
+\end{tikzpicture}

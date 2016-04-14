@@ -1,0 +1,60 @@
+\def\colortriangle#1#2#3{
+\begin{scope}[shift={#1}, rotate=#2]
+  %\draw [fill=black](0,0) -- (2,2.5) -- (-2,2.5) -- cycle;
+  %  \draw [fill=white,ultra thick](0,0) circle (1);
+  \draw [fill=#3](0,0) -- (0.5,{sqrt(3.0)/2.0}) -- (-0.5, {sqrt(3.0)/2.0}) -- cycle;
+ %\draw [fill=black](0,0) -- (0.5,2.0) -- (-0.5,2.0) -- cycle;
+ \filldraw (0,0) circle (1pt);
+ \filldraw (0.5,{sqrt(3.0)/2.0}) circle (1pt);
+ \filldraw (-0.5, {sqrt(3.0)/2.0}) circle (1pt);
+%\curvearrow{(0,{1.0/sqrt(3.0)})}{0.2}
+\end{scope}
+}
+
+\begin{tikzpicture}[scale=1.2]
+
+\coordinate (increment) at (4.0, 0);
+ \coordinate (A) at ($(0.0,0.0) + (increment)$);
+  \coordinate (B) at ($(0.5,{sqrt(3.0)/2.0}) + (increment)$);
+  \coordinate (C) at ($(-0.5,{sqrt(3.0)/2.0}) + (increment)$);
+
+% MLP
+\colortriangle{(A)}{0}{gray}
+\colortriangle{(A)}{180}{white}
+\colortriangle{(A)}{120}{white}
+\colortriangle{(A)}{240}{white}
+\colortriangle{(B)}{0}{white}
+\colortriangle{(B)}{60}{white}
+\colortriangle{(B)}{180}{white}
+\colortriangle{(B)}{240}{white}
+\colortriangle{(B)}{300}{white}
+\colortriangle{(C)}{0}{white}
+\colortriangle{(C)}{60}{white}
+\colortriangle{(C)}{120}{white}
+\colortriangle{(C)}{180}{white}
+
+\coordinate (increment1) at (-7.5,-0.3);
+% LCD
+\colortriangle{($(A) + (increment1)$)}{0}{gray}
+\colortriangle{($(B) + (increment1)$)}{60}{white}
+\colortriangle{($(B) + (increment1)$)}{180}{white}
+\colortriangle{($(C) + (increment1)$)}{180}{white}
+
+\coordinate (increment2) at (-4,0);
+%Original Barth/ 3r WENO
+\colortriangle{($(A) + (increment2)$)}{0}{gray}
+%\colortriangle{(A)}{180}{white}
+\colortriangle{($(A) + (increment2)$)}{120}{white}
+\colortriangle{($(A) + (increment2)$)}{240}{white}
+\colortriangle{($(B) + (increment2)$)}{0}{white}
+\colortriangle{($(B) + (increment2)$)}{60}{white}
+\colortriangle{($(B) + (increment2)$)}{180}{white}
+\colortriangle{($(B) + (increment2)$)}{240}{white}
+%\colortriangle{(B)}{300}{white}
+\colortriangle{($(C) + (increment2)$)}{0}{white}
+%\colortriangle{(C)}{60}{white}
+\colortriangle{($(C) + (increment2)$)}{120}{white}
+\colortriangle{($(C) + (increment2)$)}{180}{white}
+
+%\draw[step=0.5,dashed,black,thin,xshift=0.5cm,yshift=0.5cm] (-2,-2) grid (2,2);
+\end{tikzpicture}

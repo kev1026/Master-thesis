@@ -1,0 +1,22 @@
+\newcommand\MYheight{1}
+\newcommand\MYwidth{1.5}
+
+\begin{tikzpicture}[scale=2.2]
+ 
+\coordinate (LM) at (0,0);
+\coordinate (UM) at (0,\MYheight);
+\coordinate (UL) at (-\MYwidth,\MYheight);
+\coordinate (LL) at (-\MYwidth,0);
+\coordinate (UR) at (\MYwidth,\MYheight);
+\coordinate (LR) at (\MYwidth,0);
+\coordinate (CL) at (- 0.5 * \MYwidth, 0.5 * \MYheight);
+\coordinate (CR) at (0.5 * \MYwidth, 0.5 * \MYheight);
+
+ \draw[line width=1.0pt](LL) -- (LR);
+ \draw[line width=1.0pt](UL) -- (UR);
+ \draw[line width=1.0pt](LM) -- (UM);
+
+\draw (CL) node {\scriptsize{$\rho_L, u_L, p_L$}};
+\draw (CR) node {\scriptsize{$\rho_R, u_R, p_R$}};
+
+\end{tikzpicture}

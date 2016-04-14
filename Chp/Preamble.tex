@@ -1,0 +1,241 @@
+%%%%*************************Document Class Declaration*******************************
+%%
+\documentclass{ucasthesis}% thesis template of the Uni of Chinese Academy of Sciences
+%% Multiple Options:
+%% [scheme = plain] % for thesis writing of international students
+%% [doublesided] % change to double-sided style, default is single-sided
+%% [printcopy] % doublesided is for EThesis. if printed, need this for a uniform binding width
+%% [draftversion] % show draft version information, default is no show
+%% [standard options for book class]
+%%%%% --------------------------------------------------------------------------------
+%%
+%%%%**************************Command Define and Settings*****************************
+%%
+\usepackage[numeric]{commons}% common settings
+%% usage: \usepackage[option1,option2,...,optionN]{commons}
+%% Multiple Options:
+%% [myhdr] % one available header and footer style, will enable fancyhdr
+%% [lscape] % provide landscape layout environment
+%% [geometry] % configure page layout by geometry package
+%% [numeric] % enable numeric citation mode replace the default "APA" style
+%% [list] % enable enhanced list environments, useful for Algorithm and Coding
+%% [color] % enable color package to use color, current package is xcolor
+%% [background] % enable page background, will auto enable color package
+%% [tikz] % enable tikz for complex diagrams, will auto enbale color package
+%% [table] % enable a table package for complex tables, current is ctable
+\usepackage{custom}% user defined commands
+
+
+% customization
+\usepackage[]{xeCJK}
+% \setCJKmainfont[AutoFakeBold,ItalicFont={KaiTi}]{WenQuanYi Micro Hei}
+% \setCJKmainfont[BoldFont={SimHei},ItalicFont={KaiTi}]{FangSong}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{multimedia}
+\usepackage{epic,eepic}
+\usepackage{extarrows}  %%可以添加长等号，并在上下添加文字
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{pdfpages}
+\usepackage{cite}
+% \usetikzlibrary{calc}
+\usetikzlibrary{arrows,calc,decorations.markings}
+% \usepackage{accents}
+% \theoremstyle{plain}
+% \newtheorem{thm}{Theorem}[section]
+% \newtheorem{thm}{Theorem}[section]
+% \newtheorem{lem}[thm]{Lemma}
+% \newtheorem{col}[thm]{Corollary}
+
+% mathamtical symbles
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\grad}{\mathrm{grad}}
+\newcommand{\mdim}{\mathrm{dim}}
+\newcommand{\sign}{\mathrm{sign}}
+\newcommand{\minmod}{\mathrm{minmod}}
+\newcommand{\Tau}{\mathrm{T}}
+\newcommand{\RealR}{\rm I\!R}
+% \newcommand{\min}{\mathrm{min}}
+
+% Roma number
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\uppercase\expandafter{\romannumeral #1}}
+
+\setlength{\parindent}{10pt}
+\setlength{\baselineskip}{1.8em}
+\setlength{\parskip}{1ex}
+
+\newcommand{\my}[1]{{\color{gray} #1}}
+\newcommand{\todo}{{\color{red} TODO}}
+\newcommand{\start}{\color{yellow} STARTED}
+
+
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+
+% listings
+\usepackage{listings}
+
+\lstdefinestyle{Java2}%
+{%
+  basicstyle          = \scriptsize\ttfamily,
+  language            = Java,
+  numbers             = left,
+  numberstyle         = \tiny,
+  stepnumber          = 1,
+  numbersep           = 5pt,
+  backgroundcolor     = \color{white},
+  showspaces          = false,
+  showstringspaces    = false,
+  showtabs            = false,
+  frame               = single,
+  tabsize             = 2,
+  captionpos          = b,
+  breaklines          = true,
+  breakatwhitespace   = false,
+  morestring          = [b]",
+  stringstyle         = \color{magenta},
+  keywordstyle        = \color{red},
+  commentstyle        = \color{green},
+  identifierstyle     = \color{blue},
+  moredelim           = **[is][\bfseries]{`}{`},
+  fancyvrb            = true,
+}
+
+\lstdefinestyle{C}%
+{%
+  basicstyle          = \scriptsize\ttfamily,
+  language            = C,
+  numbers             = left,
+  numberstyle         = \tiny,
+  % stepnumber          = 1,
+  numbersep           = 5pt,
+  backgroundcolor     = \color{gray},
+  showspaces          = false,
+  % showspaces          = true,
+  showstringspaces    = false,
+  showtabs            = false,
+  % showtabs            = true,
+  frame               = single,
+  tabsize             = 2,
+  captionpos          = b,
+  breaklines          = true,
+  breakatwhitespace   = false,
+  morestring          = [b]",
+  stringstyle         = \color{blue},
+  keywordstyle        = \color{black},
+  commentstyle        = \color{green!20},
+  % identifierstyle     = \color{blue},
+  moredelim           = **[is][\bfseries]{`}{`},
+  fancyvrb            = true,
+  breaklines=true,
+}
+
+\lstdefinestyle{CPP}%
+{%
+  basicstyle          = \scriptsize\ttfamily,
+  language            = C++,
+  numbers             = left,
+  numberstyle         = \tiny,
+  % stepnumber          = 1,
+  numbersep           = 5pt,
+  backgroundcolor     = \color{gray},
+  showspaces          = false,
+  % showspaces          = true,
+  showstringspaces    = false,
+  showtabs            = false,
+  % showtabs            = true,
+  frame               = single,
+  tabsize             = 2,
+  captionpos          = b,
+  breaklines          = true,
+  breakatwhitespace   = false,
+  morestring          = [b]",
+  stringstyle         = \color{blue},
+  keywordstyle        = \color{black},
+  commentstyle        = \color{green!20},
+  % identifierstyle     = \color{blue},
+  moredelim           = **[is][\bfseries]{`}{`},
+  fancyvrb            = true,
+  breaklines=true,
+}
+
+
+\lstdefinestyle{makefile}%
+{%
+  basicstyle          = \scriptsize\ttfamily,
+  backgroundcolor     = \color{gray},
+  showspaces          = false,
+  % showspaces          = true,
+  showstringspaces    = false,
+  showtabs            = false,
+  % showtabs            = true,
+  frame               = single,
+  tabsize             = 2,
+  captionpos          = b,
+  breaklines          = true,
+  breakatwhitespace   = false,
+  morestring          = [b]",
+  stringstyle         = \color{blue},
+  keywordstyle        = \color{black},
+  commentstyle        = \color{green!20},
+  % identifierstyle     = \color{blue},
+  moredelim           = **[is][\bfseries]{`}{`},
+  fancyvrb            = true,
+  breaklines=true,
+  % numberblanklines=false,
+  % language=make,
+  % tabsize=4,
+  % keywordstyle=\color{red},
+  % identifierstyle= %plain identifiers for make
+}
+
+\lstdefinestyle{bash}%
+{%
+  language            = bash,
+  basicstyle          = \scriptsize\ttfamily,
+  backgroundcolor     = \color{gray},
+  showspaces          = false,
+  % showspaces          = true,
+  showstringspaces    = false,
+  showtabs            = false,
+  % showtabs            = true,
+  frame               = single,
+  tabsize             = 2,
+  captionpos          = b,
+  breaklines          = false,
+  breakatwhitespace   = false,
+  morestring          = [b]",
+  stringstyle         = \color{blue},
+  keywordstyle        = \color{black},
+  commentstyle        = \color{green!20},
+  % identifierstyle     = \color{blue},
+  moredelim           = **[is][\bfseries]{`}{`},
+  fancyvrb            = true,
+  % breaklines=true,
+  % numberblanklines=false,
+  % language=make,
+  % tabsize=4,
+  % keywordstyle=\color{red},
+  % identifierstyle= %plain identifiers for make
+}
+
+% C++ 的正确排版方式.
+\usepackage{relsize}
+\usepackage{xspace}
+\newcommand{\Rplus}{\protect\hspace{-.1em}\protect\raisebox{.35ex}{\smaller{\smaller\textbf{+}}}}
+\newcommand{\Cpp}{\mbox{C\Rplus\Rplus}\xspace}
+
+\usepackage{amssymb}
+
+\newtheorem{theorem}{{定理}}[chapter]
+\newtheorem{proposition}{{命题}}
+\newtheorem{lemma}{{引理}}
+\newtheorem{corollary}{{推论}}[theorem]
+\newtheorem{definition}{{定义}}[chapter]
+\newtheorem{example}{{例}}[chapter]
